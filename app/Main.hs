@@ -45,11 +45,37 @@ calcFitness cfg val =
   let (a, b, c) = coeffs cfg
    in a * val ** 2 + b * val + c
 
+genNRandomBits :: Bit -> StdGen -> ([Bit], StdGen)
+genNRandomBits 0 rng = ([], rng)
+genNRandomBits n rng =
+  let (bit, rng1) = randomR (0 :: Int, 1) rng
+      (bits, rng2) = genNRandomBits (n - 1) rng1
+   in (bit : bits, rng2)
+
+makeRandomChromo :: Config -> StdGen -> (Chrom, StdGen)
+makeRandomChromo cfg rng =
+  let l = chromLen cfg
+      (chrm, rng_) = genNRandomBits l rng
+   in (chrm, rng_)
+
 makeIndividual :: Config -> Chrom -> Individual
 makeIndividual cfg chr =
   let val = decode cfg chr
       fit = calcFitness cfg val
    in Individual chr val fit
+
+makeRandomIndividual :: Config -> StdGen -> (Individual, StdGen)
+makeRandomIndividual cfg rng =
+  let (chrm, rng_) = makeRandomChromo cfg rng
+      individual = makeIndividual cfg chrm
+   in (individual, rng_)
+
+makePopulation :: Config -> Int -> StdGen -> ([Individual], StdGen)
+makePopulation _ 0 rng = ([], rng)
+makePopulation cfg n rng =
+  let (individual, rng1) = makeRandomIndividual cfg rng
+      (individuals, rng2) = makePopulation cfg (n - 1) rng1
+   in (individual : individuals, rng2)
 
 main :: IO ()
 main = do
