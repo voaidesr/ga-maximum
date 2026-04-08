@@ -1,5 +1,8 @@
 module Main where
 
+import Data.Foldable (maximumBy)
+import Data.Function (on)
+import Data.List
 import qualified Data.Vector as V
 import System.Random
 import Text.Printf (printf)
@@ -108,14 +111,40 @@ binarySearch vect u = search 0 (V.length vect - 2)
       where
         mid = (low + high) `div` 2
 
-selection :: Config -> [Individual] -> StdGen -> ([Individual], StdGen)
-selection cfg pop rng =
+selectionFit :: Config -> [Individual] -> StdGen -> ([Individual], StdGen)
+selectionFit cfg pop rng =
   let probs = calcProb pop
       q = V.fromList $ calcCumulative probs
+      popV = V.fromList pop
       size = popSize cfg
-      (randomN, rng_) = genNRandomDoubles size rng
-      selected = map (\u -> pop !! binarySearch q u) randomN
+      (randomN, rng_) = genNRandomDoubles (size - 1) rng -- select population size - 1
+      selected = map (\u -> popV V.! binarySearch q u) randomN
    in (selected, rng_)
+
+selectionElite :: [Individual] -> Individual
+selectionElite = maximumBy (compare `on` fitness)
+
+selection :: Config -> [Individual] -> StdGen -> [Individual]
+selection cfg pop rng =
+  let (s1, _) = selectionFit cfg pop rng
+      s2 = selectionElite pop
+   in s1 ++ [s2]
+
+_groupParents :: [a] -> ([(a, a)], [a])
+_groupParents [] = ([], [])
+_groupParents [x] = ([], [x])
+_groupParents (x : y : xs) =
+  let (pairs, left) = _groupParents xs
+   in ((x, y) : pairs, left)
+
+_chooseCross :: Config -> [Individual] -> StdGen -> ([Individual], [Individual], StdGen)
+_chooseCross cfg pop rng =
+  let p = crossProb cfg
+      (toss, rng_) = genNRandomDoubles (length pop) rng
+      (p1_, p2_) = partition (\(_, prob) -> prob < p) $ zip pop toss
+      p1 = map fst p1_
+      p2 = map fst p2_
+   in (p1, p2, rng_)
 
 main :: IO ()
 main = do
@@ -152,8 +181,13 @@ main = do
   -- mapM_ print (calcProb initialPop)
   --
   -- mapM_ print (calcCumulative (calcProb initialPop))
-  let (selected, _) = selection testConfig initialPop rng
+  let selected = selection testConfig initialPop rng
+  -- let selected = selectionElite initialPop
 
   printf "SELECTED:\n"
 
   mapM_ print selected
+
+  let (x, y) = _groupParents [2, 3, 4, 5]
+  print x
+  print y
