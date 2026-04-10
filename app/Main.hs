@@ -1,6 +1,5 @@
 module Main where
 
-import Data.Foldable (maximumBy)
 import Data.Function (on)
 import Data.List
 import qualified Data.Vector as V
@@ -146,6 +145,25 @@ _chooseCross cfg pop rng =
       p2 = map fst p2_
    in (p1, p2, rng_)
 
+_crossOver :: Config -> (Individual, Individual) -> StdGen -> ([Individual], StdGen)
+_crossOver cfg (i1, i2) rng =
+  let c1 = chrom i1
+      c2 = chrom i2
+      l = chromLen cfg
+      (k, rng_) = randomR (1 :: Int, l - 1) rng -- could set to 0, l if I wanted not to allow crossover to happen sometimes
+      (c11, c12) = splitAt k c1
+      (c21, c22) = splitAt k c2
+      i1_ = makeIndividual cfg (c11 ++ c22)
+      i2_ = makeIndividual cfg (c21 ++ c12)
+   in ([i1_, i2_], rng_)
+
+crossOver :: Config -> [(Individual, Individual)] -> StdGen -> ([Individual], StdGen)
+crossOver _ [] rng = ([], rng)
+crossOver cfg (x : xs) rng =
+  let (l1, rng1) = _crossOver cfg x rng
+      (l2, rng2) = crossOver cfg xs rng1
+   in (l1 ++ l2, rng2)
+
 main :: IO ()
 main = do
   let d = (-1.0, 2.0)
@@ -188,6 +206,6 @@ main = do
 
   mapM_ print selected
 
-  let (x, y) = _groupParents [2, 3, 4, 5]
+  let (x, y) = _groupParents [2 :: Int, 3, 4, 5, 6]
   print x
   print y
