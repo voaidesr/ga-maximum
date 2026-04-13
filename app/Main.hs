@@ -3,8 +3,9 @@ module Main where
 import Data.Function (on)
 import Data.List
 import qualified Data.Vector as V
+import System.IO
 import System.Random
-import Text.Printf (printf)
+import Text.Printf (hPrintf)
 
 data Config = Config
   { popSize :: Int,
@@ -116,18 +117,12 @@ selectionFit cfg pop rng =
       q = V.fromList $ calcCumulative probs
       popV = V.fromList pop
       size = popSize cfg
-      (randomN, rng_) = genNRandomDoubles (size - 1) rng -- select population size - 1
+      (randomN, rng_) = genNRandomDoubles size rng
       selected = map (\u -> popV V.! binarySearch q u) randomN
    in (selected, rng_)
 
 selectionElite :: [Individual] -> Individual
 selectionElite = maximumBy (compare `on` fitness)
-
-selection :: Config -> [Individual] -> StdGen -> [Individual]
-selection cfg pop rng =
-  let (s1, _) = selectionFit cfg pop rng
-      s2 = selectionElite pop
-   in s1 ++ [s2]
 
 _groupParents :: [a] -> ([(a, a)], [a])
 _groupParents [] = ([], [])
@@ -192,6 +187,38 @@ mutateIs cfg (x : xs) rng =
       (xs_, rng2) = mutateIs cfg xs rng1
    in (x_ : xs_, rng2)
 
+formatChrom :: Chrom -> String
+formatChrom = concatMap show
+
+logMeta :: Handle -> Config -> IO ()
+logMeta h cfg = do
+  let (a, b, c) = coeffs cfg
+  let (s, d) = domain cfg
+  hPrintf
+    h
+    "Polynomial: %.2f X^2 + %.2f X + %.2f\n"
+    a
+    b
+    c
+  hPrintf
+    h
+    "Search interval [%.2f, %.2f]\n\n"
+    s
+    d
+
+logI :: Handle -> Individual -> IO ()
+logI h ind = do
+  hPrintf
+    h
+    "Chrom: %s | Val: %7.4f | Fit: %7.4f\n"
+    (formatChrom $ chrom ind)
+    (trueVal ind)
+    (fitness ind)
+
+-- logP :: Handle -> [Individual] -> IO ()
+-- logI h pop = do
+-- let probs = calcProb pop
+
 main :: IO ()
 main = do
   let d = (-1.0, 2.0)
@@ -208,32 +235,10 @@ main = do
             chromLen = chromLength d p
           }
 
-  let l = chromLength (domain testConfig) (precision testConfig)
-
   rng <- getStdGen
   let (initialPop, _) = makePopulation testConfig rng
 
-  printf "Testing Chromosome Length:\n"
-  printf "Domain: %s, Precision: %d\n" (show $ domain testConfig) (precision testConfig)
-  printf "Calculated Length (L): %d bits\n\n" l
-
-  printf "%d\n" (_bitsToInt [1, 0, 1, 0])
-
-  printf "%d\n" (chromLen testConfig)
-
-  printf "%f\n" (decode testConfig [1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1])
-
-  -- mapM_ print initialPop
-  -- mapM_ print (calcProb initialPop)
-  --
-  -- mapM_ print (calcCumulative (calcProb initialPop))
-  let selected = selection testConfig initialPop rng
-  -- let selected = selectionElite initialPop
-
-  printf "SELECTED:\n"
-
-  mapM_ print selected
-
-  let (x, y) = _groupParents [2 :: Int, 3, 4, 5, 6]
-  print x
-  print y
+  withFile "Evolutie.txt" WriteMode $ \h -> do
+    hPutStrLn h "Start Algorithm:\n"
+    logMeta h testConfig
+    mapM_ (logI h) initialPop
