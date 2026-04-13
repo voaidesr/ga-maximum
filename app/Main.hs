@@ -164,6 +164,34 @@ crossOver cfg (x : xs) rng =
       (l2, rng2) = crossOver cfg xs rng1
    in (l1 ++ l2, rng2)
 
+complementBit :: Bit -> Bit
+complementBit 0 = 1
+complementBit 1 = 0
+complementBit _ = 0
+
+mutateC :: Config -> Chrom -> StdGen -> (Chrom, StdGen)
+mutateC cfg chrm rng =
+  let l = chromLen cfg
+      mutP = mutProb cfg
+      (probs, rng_) = genNRandomDoubles l rng
+      chromProbs = zip chrm probs
+      newChrom = map (\(x, p) -> if p < mutP then complementBit x else x) chromProbs
+   in (newChrom, rng_)
+
+mutateI :: Config -> Individual -> StdGen -> (Individual, StdGen)
+mutateI cfg ind rng =
+  let chrm = chrom ind
+      (chrm_, rng_) = mutateC cfg chrm rng
+      ind_ = makeIndividual cfg chrm_
+   in (ind_, rng_)
+
+mutateIs :: Config -> [Individual] -> StdGen -> ([Individual], StdGen)
+mutateIs _ [] rng = ([], rng)
+mutateIs cfg (x : xs) rng =
+  let (x_, rng1) = mutateI cfg x rng
+      (xs_, rng2) = mutateIs cfg xs rng1
+   in (x_ : xs_, rng2)
+
 main :: IO ()
 main = do
   let d = (-1.0, 2.0)
