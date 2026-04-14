@@ -211,6 +211,12 @@ mutateIs cfg (x : xs) rng =
       (xs_, rng2) = mutateIs cfg xs rng1
    in (x_ : xs_, rng2)
 
+maxFit :: [Individual] -> Double
+maxFit pop = fitness $ selectionElite pop
+
+averageFit :: [Individual] -> Double
+averageFit pop = sum (map fitness pop) / fromIntegral (length pop)
+
 formatChrom :: Chrom -> String
 formatChrom = concatMap show
 
@@ -292,7 +298,7 @@ main = do
             coeffs = (-1.0, 1.0, 2.0),
             precision = p,
             crossProb = 0.45,
-            mutProb = 0.01,
+            mutProb = 0.05,
             numSteps = 50,
             chromLen = chromLength d p
           }
@@ -344,5 +350,22 @@ main = do
     hPutStrLn h "\n6.2. The resulted individuals are:"
     logP h resultCross
 
-    hPutStrLn h "\n6.3. The remaining population is:"
-    logP h (resultCross ++ toPass_)
+    let popAfterCross = resultCross ++ toPass_
+    hPutStrLn h "\n6.3. The population after the crossover process is:"
+    logP h popAfterCross
+
+    let (popAfterMut, rng4) = mutateIs testConfig popAfterCross rng3
+    hPutStrLn h "\n7. The population after the mutation process is:"
+    logP h popAfterMut
+    hPrintf
+      h
+      "\nEach bit had a probability of %.2f%% to mutate.\n"
+      (mutProb testConfig * 100)
+    hPutStrLn h "The elite individual and this remaining population combined pass into the second generation."
+
+    let nextGenPop = [eliteIndividual] ++ popAfterMut
+    hPrintf
+      h
+      "\n8. The statistics after the first generation are: Max Fitness = %.4f, Average Fitness = %.4f\n"
+      (maxFit nextGenPop)
+      (averageFit nextGenPop)
