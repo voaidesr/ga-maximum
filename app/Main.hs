@@ -14,7 +14,7 @@ data Config = Config
     precision :: Int,
     crossProb :: Double,
     mutProb :: Double,
-    numSteps :: Double,
+    numSteps :: Int,
     chromLen :: Int
   }
   deriving (Show)
@@ -217,6 +217,25 @@ maxFit pop = fitness $ selectionElite pop
 averageFit :: [Individual] -> Double
 averageFit pop = sum (map fitness pop) / fromIntegral (length pop)
 
+simulateNGenerations :: Config -> Int -> [Individual] -> StdGen -> ([Individual], [(Double, Double)], StdGen)
+simulateNGenerations _ 0 pop rng =
+  let maxF = maxFit pop
+      avgF = averageFit pop
+   in (pop, [(maxF, avgF)], rng)
+simulateNGenerations cfg n pop rng =
+  let eliteI = selectionElite pop
+      (selected, rng1) = selectionFit cfg pop rng
+      (p1, p2, rng2) = _chooseCross cfg selected rng1
+      (parents, rest) = _groupParents p1
+      (resultCross, _, rng3) = crossOver cfg parents rng2
+      resultAfterCross = p2 ++ rest ++ resultCross
+      (resultAfterMutated, rng4) = mutateIs cfg resultAfterCross rng3
+      newPop = eliteI : resultAfterMutated
+      maxF = maxFit newPop
+      avgF = averageFit newPop
+      (finalPop, vals, rng_) = simulateNGenerations cfg (n - 1) newPop rng4
+   in (finalPop, (maxF, avgF) : vals, rng_)
+
 formatChrom :: Chrom -> String
 formatChrom = concatMap show
 
@@ -283,21 +302,26 @@ logPair h ((i1, i2), k) = do
     (formatChrom $ chrom i2)
     k
 
--- logP :: Handle -> [Individual] -> IO ()
--- logI h pop = do
--- let probs = calcProb pop
+logFits :: Handle -> (Int, (Double, Double)) -> IO ()
+logFits h (idx, (m, a)) = do
+  hPrintf
+    h
+    "\nThe statistics after generation %d are: Max Fitness = %.4f, Average Fitness = %.4f\n"
+    idx
+    m
+    a
 
 main :: IO ()
 main = do
-  let d = (-1.0, 2.0)
+  let d = (0.5, 1.5)
   let p = 3
   let testConfig =
         Config
           { popSize = 20,
             domain = d,
-            coeffs = (-1.0, 1.0, 2.0),
+            coeffs = (-3.0, 6.0, -2.0),
             precision = p,
-            crossProb = 0.45,
+            crossProb = 0.35,
             mutProb = 0.05,
             numSteps = 50,
             chromLen = chromLength d p
@@ -369,3 +393,8 @@ main = do
       "\n8. The statistics after the first generation are: Max Fitness = %.4f, Average Fitness = %.4f\n"
       (maxFit nextGenPop)
       (averageFit nextGenPop)
+
+    let (_, fits, _) = simulateNGenerations testConfig (numSteps testConfig - 1) nextGenPop rng4
+        fitsIdx = zip [2 ..] fits
+
+    mapM_ (logFits h) fitsIdx

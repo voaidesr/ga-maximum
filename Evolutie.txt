@@ -2,228 +2,325 @@
 
 1. Metadata:
 
-Polynomial: -1.00 X^2 + 1.00 X + 2.00
-Search interval [-1.00, 2.00]
+Polynomial: -3.00 X^2 + 6.00 X + -2.00
+Search interval [0.50, 1.50]
 
 2. Initial Population:
 
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 000101100100 | Val: -0.7392 | Fit:  0.7144
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
-Chrom: 011001111001 | Val:  0.2139 | Fit:  2.1682
-Chrom: 101000100011 | Val:  0.9011 | Fit:  2.0891
-Chrom: 100110111111 | Val:  0.8278 | Fit:  2.1425
-Chrom: 101010111001 | Val:  1.0110 | Fit:  1.9889
-Chrom: 110001111011 | Val:  1.3407 | Fit:  1.5433
-Chrom: 000101111001 | Val: -0.7238 | Fit:  0.7523
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
-Chrom: 000000001110 | Val: -0.9897 | Fit:  0.0307
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
-Chrom: 110100110101 | Val:  1.4769 | Fit:  1.2956
-Chrom: 010001010010 | Val: -0.1897 | Fit:  1.7743
-Chrom: 000110011101 | Val: -0.6974 | Fit:  0.8161
-Chrom: 111000011010 | Val:  1.6447 | Fit:  0.9397
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
-Chrom: 100011010011 | Val:  0.6549 | Fit:  2.2260
+Chrom: 1111100110 | Val:  1.4756 | Fit:  0.3215
+Chrom: 0100010111 | Val:  0.7727 | Fit:  0.8450
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0100000001 | Val:  0.7512 | Fit:  0.8143
+Chrom: 1111111011 | Val:  1.4961 | Fit:  0.2617
+Chrom: 1110010111 | Val:  1.3983 | Fit:  0.5240
+Chrom: 1001101101 | Val:  1.1070 | Fit:  0.9656
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 1000001001 | Val:  1.0093 | Fit:  0.9997
+Chrom: 0100100100 | Val:  0.7854 | Fit:  0.8619
+Chrom: 1100100100 | Val:  1.2859 | Fit:  0.7547
+Chrom: 0110011110 | Val:  0.9047 | Fit:  0.9727
+Chrom: 1100001101 | Val:  1.2634 | Fit:  0.7918
+Chrom: 1011010111 | Val:  1.2107 | Fit:  0.8669
+Chrom: 0000010001 | Val:  0.5166 | Fit:  0.2990
+Chrom: 0111110101 | Val:  0.9897 | Fit:  0.9997
+Chrom: 0000110111 | Val:  0.5538 | Fit:  0.4026
+Chrom: 1111001101 | Val:  1.4511 | Fit:  0.3895
+Chrom: 0110010111 | Val:  0.8978 | Fit:  0.9687
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
 
 3. Selection Probabilities:
 
-Chrom: 110010001001, Probability:  5.13%
-Chrom: 000101100100, Probability:  2.40%
-Chrom: 000100011111, Probability:  1.97%
-Chrom: 011001111001, Probability:  7.29%
-Chrom: 101000100011, Probability:  7.02%
-Chrom: 100110111111, Probability:  7.20%
-Chrom: 101010111001, Probability:  6.68%
-Chrom: 110001111011, Probability:  5.19%
-Chrom: 000101111001, Probability:  2.53%
-Chrom: 100110100011, Probability:  7.24%
-Chrom: 011011001110, Probability:  7.39%
-Chrom: 010010010100, Probability:  6.18%
-Chrom: 000000001110, Probability:  0.10%
-Chrom: 110010101011, Probability:  4.98%
-Chrom: 110100110101, Probability:  4.35%
-Chrom: 010001010010, Probability:  5.96%
-Chrom: 000110011101, Probability:  2.74%
-Chrom: 111000011010, Probability:  3.16%
-Chrom: 001101010101, Probability:  4.99%
-Chrom: 100011010011, Probability:  7.48%
+Chrom: 1111100110, Probability:  2.20%
+Chrom: 0100010111, Probability:  5.79%
+Chrom: 1011101001, Probability:  5.78%
+Chrom: 0100000001, Probability:  5.58%
+Chrom: 1111111011, Probability:  1.79%
+Chrom: 1110010111, Probability:  3.59%
+Chrom: 1001101101, Probability:  6.61%
+Chrom: 0111110000, Probability:  6.84%
+Chrom: 1000001001, Probability:  6.85%
+Chrom: 0100100100, Probability:  5.90%
+Chrom: 1100100100, Probability:  5.17%
+Chrom: 0110011110, Probability:  6.66%
+Chrom: 1100001101, Probability:  5.42%
+Chrom: 1011010111, Probability:  5.94%
+Chrom: 0000010001, Probability:  2.05%
+Chrom: 0111110101, Probability:  6.85%
+Chrom: 0000110111, Probability:  2.76%
+Chrom: 1111001101, Probability:  2.67%
+Chrom: 0110010111, Probability:  6.63%
+Chrom: 0011000110, Probability:  4.92%
 
 4. Selection Intervals:
 
-Interval 1: [ 0.00,  0.05)
-Interval 2: [ 0.05,  0.08)
-Interval 3: [ 0.08,  0.10)
-Interval 4: [ 0.10,  0.17)
-Interval 5: [ 0.17,  0.24)
-Interval 6: [ 0.24,  0.31)
-Interval 7: [ 0.31,  0.38)
-Interval 8: [ 0.38,  0.43)
-Interval 9: [ 0.43,  0.45)
-Interval 10: [ 0.45,  0.53)
-Interval 11: [ 0.53,  0.60)
-Interval 12: [ 0.60,  0.66)
-Interval 13: [ 0.66,  0.66)
-Interval 14: [ 0.66,  0.71)
-Interval 15: [ 0.71,  0.76)
-Interval 16: [ 0.76,  0.82)
-Interval 17: [ 0.82,  0.84)
-Interval 18: [ 0.84,  0.88)
-Interval 19: [ 0.88,  0.93)
-Interval 20: [ 0.93,  1.00)
+Interval 1: [ 0.00,  0.02)
+Interval 2: [ 0.02,  0.08)
+Interval 3: [ 0.08,  0.14)
+Interval 4: [ 0.14,  0.19)
+Interval 5: [ 0.19,  0.21)
+Interval 6: [ 0.21,  0.25)
+Interval 7: [ 0.25,  0.31)
+Interval 8: [ 0.31,  0.38)
+Interval 9: [ 0.38,  0.45)
+Interval 10: [ 0.45,  0.51)
+Interval 11: [ 0.51,  0.56)
+Interval 12: [ 0.56,  0.63)
+Interval 13: [ 0.63,  0.68)
+Interval 14: [ 0.68,  0.74)
+Interval 15: [ 0.74,  0.76)
+Interval 16: [ 0.76,  0.83)
+Interval 17: [ 0.83,  0.86)
+Interval 18: [ 0.86,  0.88)
+Interval 19: [ 0.88,  0.95)
+Interval 20: [ 0.95,  1.00)
 
 5. Selection Begins:
 
 5.1. Select elite:
 Found elite individual, that passes directly into the next generation:
-Chrom: 100011010011 | Val:  0.6549 | Fit:  2.2260
+Chrom: 1000001001 | Val:  1.0093 | Fit:  0.9997
 
 5.2 Selecting the next individuals through roulette selection:
 
-Random number: 0.048. After binary search found interval with index: 0. Selecting individual:
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Random number: 0.205. After binary search found interval with index: 4. Selecting individual:
+Chrom: 1111111011 | Val:  1.4961 | Fit:  0.2617
 
-Random number: 0.515. After binary search found interval with index: 9. Selecting individual:
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
+Random number: 0.719. After binary search found interval with index: 13. Selecting individual:
+Chrom: 1011010111 | Val:  1.2107 | Fit:  0.8669
 
-Random number: 0.876. After binary search found interval with index: 18. Selecting individual:
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
+Random number: 0.275. After binary search found interval with index: 6. Selecting individual:
+Chrom: 1001101101 | Val:  1.1070 | Fit:  0.9656
 
-Random number: 0.627. After binary search found interval with index: 11. Selecting individual:
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
+Random number: 0.967. After binary search found interval with index: 19. Selecting individual:
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
 
-Random number: 0.036. After binary search found interval with index: 0. Selecting individual:
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Random number: 0.134. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.434. After binary search found interval with index: 8. Selecting individual:
-Chrom: 000101111001 | Val: -0.7238 | Fit:  0.7523
+Random number: 0.095. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.668. After binary search found interval with index: 13. Selecting individual:
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
+Random number: 0.961. After binary search found interval with index: 19. Selecting individual:
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
 
-Random number: 0.480. After binary search found interval with index: 9. Selecting individual:
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
+Random number: 0.377. After binary search found interval with index: 7. Selecting individual:
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
 
-Random number: 0.533. After binary search found interval with index: 10. Selecting individual:
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
+Random number: 0.743. After binary search found interval with index: 14. Selecting individual:
+Chrom: 0000010001 | Val:  0.5166 | Fit:  0.2990
 
-Random number: 0.804. After binary search found interval with index: 15. Selecting individual:
-Chrom: 010001010010 | Val: -0.1897 | Fit:  1.7743
+Random number: 0.182. After binary search found interval with index: 3. Selecting individual:
+Chrom: 0100000001 | Val:  0.7512 | Fit:  0.8143
 
-Random number: 0.276. After binary search found interval with index: 5. Selecting individual:
-Chrom: 100110111111 | Val:  0.8278 | Fit:  2.1425
+Random number: 0.136. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.079. After binary search found interval with index: 2. Selecting individual:
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
+Random number: 0.221. After binary search found interval with index: 5. Selecting individual:
+Chrom: 1110010111 | Val:  1.3983 | Fit:  0.5240
 
-Random number: 0.337. After binary search found interval with index: 6. Selecting individual:
-Chrom: 101010111001 | Val:  1.0110 | Fit:  1.9889
+Random number: 0.125. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.710. After binary search found interval with index: 13. Selecting individual:
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
+Random number: 0.124. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.922. After binary search found interval with index: 18. Selecting individual:
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
+Random number: 0.522. After binary search found interval with index: 10. Selecting individual:
+Chrom: 1100100100 | Val:  1.2859 | Fit:  0.7547
 
-Random number: 0.593. After binary search found interval with index: 10. Selecting individual:
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
+Random number: 0.352. After binary search found interval with index: 7. Selecting individual:
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
 
-Random number: 0.080. After binary search found interval with index: 2. Selecting individual:
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
+Random number: 0.845. After binary search found interval with index: 16. Selecting individual:
+Chrom: 0000110111 | Val:  0.5538 | Fit:  0.4026
 
-Random number: 0.637. After binary search found interval with index: 11. Selecting individual:
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
+Random number: 0.093. After binary search found interval with index: 2. Selecting individual:
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
 
-Random number: 0.042. After binary search found interval with index: 0. Selecting individual:
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Random number: 0.889. After binary search found interval with index: 18. Selecting individual:
+Chrom: 0110010111 | Val:  0.8978 | Fit:  0.9687
 
 The selected population, based on fitness is:
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 000101111001 | Val: -0.7238 | Fit:  0.7523
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 010001010010 | Val: -0.1897 | Fit:  1.7743
-Chrom: 100110111111 | Val:  0.8278 | Fit:  2.1425
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
-Chrom: 101010111001 | Val:  1.0110 | Fit:  1.9889
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Chrom: 1111111011 | Val:  1.4961 | Fit:  0.2617
+Chrom: 1011010111 | Val:  1.2107 | Fit:  0.8669
+Chrom: 1001101101 | Val:  1.1070 | Fit:  0.9656
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 0000010001 | Val:  0.5166 | Fit:  0.2990
+Chrom: 0100000001 | Val:  0.7512 | Fit:  0.8143
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1110010111 | Val:  1.3983 | Fit:  0.5240
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1100100100 | Val:  1.2859 | Fit:  0.7547
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 0000110111 | Val:  0.5538 | Fit:  0.4026
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0110010111 | Val:  0.8978 | Fit:  0.9687
 
 6.Crossover:
 
 6.1. The pairs that take part in the crossover are:
-(110010001001, 001101010101) | Crossover point: 6
-(110010001001, 000101111001) | Crossover point: 9
-(100110100011, 010001010010) | Crossover point: 6
-(100110111111, 000100011111) | Crossover point: 2
-(110010101011, 010010010100) | Crossover point: 10
+(1011010111, 0011000110) | Crossover point: 9
+(1011101001, 0000010001) | Crossover point: 1
+(1011101001, 1011101001) | Crossover point: 8
+(0000110111, 1011101001) | Crossover point: 2
 
 6.2. The resulted individuals are:
-Chrom: 110010010101 | Val:  1.3597 | Fit:  1.5109
-Chrom: 001101001001 | Val: -0.3839 | Fit:  1.4688
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 000101111001 | Val: -0.7238 | Fit:  0.7523
-Chrom: 100110010010 | Val:  0.7949 | Fit:  2.1631
-Chrom: 010001100011 | Val: -0.1773 | Fit:  1.7913
-Chrom: 100100011111 | Val:  0.7106 | Fit:  2.2056
-Chrom: 000110111111 | Val: -0.6725 | Fit:  0.8752
-Chrom: 110010101000 | Val:  1.3736 | Fit:  1.4868
-Chrom: 010010010111 | Val: -0.1392 | Fit:  1.8414
+Chrom: 1011010110 | Val:  1.2097 | Fit:  0.8681
+Chrom: 0011000111 | Val:  0.6945 | Fit:  0.7201
+Chrom: 1000010001 | Val:  1.0171 | Fit:  0.9991
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1000110111 | Val:  1.0543 | Fit:  0.9912
 
 6.3. The population after the crossover process is:
-Chrom: 110010010101 | Val:  1.3597 | Fit:  1.5109
-Chrom: 001101001001 | Val: -0.3839 | Fit:  1.4688
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 000101111001 | Val: -0.7238 | Fit:  0.7523
-Chrom: 100110010010 | Val:  0.7949 | Fit:  2.1631
-Chrom: 010001100011 | Val: -0.1773 | Fit:  1.7913
-Chrom: 100100011111 | Val:  0.7106 | Fit:  2.2056
-Chrom: 000110111111 | Val: -0.6725 | Fit:  0.8752
-Chrom: 110010101000 | Val:  1.3736 | Fit:  1.4868
-Chrom: 010010010111 | Val: -0.1392 | Fit:  1.8414
-Chrom: 100110100011 | Val:  0.8073 | Fit:  2.1556
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 101010111001 | Val:  1.0110 | Fit:  1.9889
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Chrom: 1011010110 | Val:  1.2097 | Fit:  0.8681
+Chrom: 0011000111 | Val:  0.6945 | Fit:  0.7201
+Chrom: 1000010001 | Val:  1.0171 | Fit:  0.9991
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1000110111 | Val:  1.0543 | Fit:  0.9912
+Chrom: 1111111011 | Val:  1.4961 | Fit:  0.2617
+Chrom: 1001101101 | Val:  1.1070 | Fit:  0.9656
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0011000110 | Val:  0.6935 | Fit:  0.7183
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 0100000001 | Val:  0.7512 | Fit:  0.8143
+Chrom: 1110010111 | Val:  1.3983 | Fit:  0.5240
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1100100100 | Val:  1.2859 | Fit:  0.7547
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 0110010111 | Val:  0.8978 | Fit:  0.9687
 
 7. The population after the mutation process is:
-Chrom: 110010010001 | Val:  1.3568 | Fit:  1.5159
-Chrom: 001001011001 | Val: -0.5597 | Fit:  1.1270
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
-Chrom: 000101110001 | Val: -0.7297 | Fit:  0.7379
-Chrom: 100110011010 | Val:  0.8007 | Fit:  2.1596
-Chrom: 110001100011 | Val:  1.3231 | Fit:  1.5725
-Chrom: 110100010110 | Val:  1.4542 | Fit:  1.3395
-Chrom: 000110111111 | Val: -0.6725 | Fit:  0.8752
-Chrom: 110010101100 | Val:  1.3766 | Fit:  1.4816
-Chrom: 010010010111 | Val: -0.1392 | Fit:  1.8414
-Chrom: 100110110110 | Val:  0.8212 | Fit:  2.1468
-Chrom: 010010010100 | Val: -0.1414 | Fit:  1.8386
-Chrom: 110010101011 | Val:  1.3758 | Fit:  1.4829
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 101010101000 | Val:  0.9985 | Fit:  2.0015
-Chrom: 001101010101 | Val: -0.3751 | Fit:  1.4842
-Chrom: 011011001110 | Val:  0.2762 | Fit:  2.1999
-Chrom: 000100011111 | Val: -0.7897 | Fit:  0.5866
-Chrom: 110010001001 | Val:  1.3509 | Fit:  1.5259
+Chrom: 1001010110 | Val:  1.0846 | Fit:  0.9786
+Chrom: 0011000111 | Val:  0.6945 | Fit:  0.7201
+Chrom: 1000010001 | Val:  1.0171 | Fit:  0.9991
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1011101101 | Val:  1.2322 | Fit:  0.8383
+Chrom: 1011101000 | Val:  1.2273 | Fit:  0.8450
+Chrom: 0011101001 | Val:  0.7278 | Fit:  0.7777
+Chrom: 1010110111 | Val:  1.1794 | Fit:  0.9035
+Chrom: 1111111011 | Val:  1.4961 | Fit:  0.2617
+Chrom: 1001101101 | Val:  1.1070 | Fit:  0.9656
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 0010110110 | Val:  0.6779 | Fit:  0.6888
+Chrom: 0111110000 | Val:  0.9848 | Fit:  0.9993
+Chrom: 0100000001 | Val:  0.7512 | Fit:  0.8143
+Chrom: 1110010111 | Val:  1.3983 | Fit:  0.5240
+Chrom: 1011101001 | Val:  1.2283 | Fit:  0.8437
+Chrom: 1110100100 | Val:  1.4110 | Fit:  0.4931
+Chrom: 0111110010 | Val:  0.9868 | Fit:  0.9995
+Chrom: 0110010111 | Val:  0.8978 | Fit:  0.9687
 
 Each bit had a probability of 5.00% to mutate.
 The elite individual and this remaining population combined pass into the second generation.
 
-8. The statistics after the first generation are: Max Fitness = 2.2260, Average Fitness = 1.5934
+8. The statistics after the first generation are: Max Fitness = 0.9997, Average Fitness = 0.8121
+
+The statistics after generation 2 are: Max Fitness = 0.9997, Average Fitness = 0.8708
+
+The statistics after generation 3 are: Max Fitness = 0.9997, Average Fitness = 0.9134
+
+The statistics after generation 4 are: Max Fitness = 0.9997, Average Fitness = 0.8786
+
+The statistics after generation 5 are: Max Fitness = 1.0000, Average Fitness = 0.9129
+
+The statistics after generation 6 are: Max Fitness = 1.0000, Average Fitness = 0.8809
+
+The statistics after generation 7 are: Max Fitness = 1.0000, Average Fitness = 0.9207
+
+The statistics after generation 8 are: Max Fitness = 1.0000, Average Fitness = 0.8517
+
+The statistics after generation 9 are: Max Fitness = 1.0000, Average Fitness = 0.8811
+
+The statistics after generation 10 are: Max Fitness = 1.0000, Average Fitness = 0.9445
+
+The statistics after generation 11 are: Max Fitness = 1.0000, Average Fitness = 0.9267
+
+The statistics after generation 12 are: Max Fitness = 1.0000, Average Fitness = 0.9392
+
+The statistics after generation 13 are: Max Fitness = 1.0000, Average Fitness = 0.8696
+
+The statistics after generation 14 are: Max Fitness = 1.0000, Average Fitness = 0.8697
+
+The statistics after generation 15 are: Max Fitness = 1.0000, Average Fitness = 0.8621
+
+The statistics after generation 16 are: Max Fitness = 1.0000, Average Fitness = 0.8733
+
+The statistics after generation 17 are: Max Fitness = 1.0000, Average Fitness = 0.7664
+
+The statistics after generation 18 are: Max Fitness = 1.0000, Average Fitness = 0.7713
+
+The statistics after generation 19 are: Max Fitness = 1.0000, Average Fitness = 0.7959
+
+The statistics after generation 20 are: Max Fitness = 1.0000, Average Fitness = 0.7214
+
+The statistics after generation 21 are: Max Fitness = 1.0000, Average Fitness = 0.7610
+
+The statistics after generation 22 are: Max Fitness = 1.0000, Average Fitness = 0.8393
+
+The statistics after generation 23 are: Max Fitness = 1.0000, Average Fitness = 0.8839
+
+The statistics after generation 24 are: Max Fitness = 1.0000, Average Fitness = 0.8782
+
+The statistics after generation 25 are: Max Fitness = 1.0000, Average Fitness = 0.8528
+
+The statistics after generation 26 are: Max Fitness = 1.0000, Average Fitness = 0.8616
+
+The statistics after generation 27 are: Max Fitness = 1.0000, Average Fitness = 0.8897
+
+The statistics after generation 28 are: Max Fitness = 1.0000, Average Fitness = 0.9165
+
+The statistics after generation 29 are: Max Fitness = 1.0000, Average Fitness = 0.8379
+
+The statistics after generation 30 are: Max Fitness = 1.0000, Average Fitness = 0.8452
+
+The statistics after generation 31 are: Max Fitness = 1.0000, Average Fitness = 0.9279
+
+The statistics after generation 32 are: Max Fitness = 1.0000, Average Fitness = 0.8870
+
+The statistics after generation 33 are: Max Fitness = 1.0000, Average Fitness = 0.8980
+
+The statistics after generation 34 are: Max Fitness = 1.0000, Average Fitness = 0.9306
+
+The statistics after generation 35 are: Max Fitness = 1.0000, Average Fitness = 0.9117
+
+The statistics after generation 36 are: Max Fitness = 1.0000, Average Fitness = 0.8727
+
+The statistics after generation 37 are: Max Fitness = 1.0000, Average Fitness = 0.7892
+
+The statistics after generation 38 are: Max Fitness = 1.0000, Average Fitness = 0.8320
+
+The statistics after generation 39 are: Max Fitness = 1.0000, Average Fitness = 0.8102
+
+The statistics after generation 40 are: Max Fitness = 1.0000, Average Fitness = 0.9021
+
+The statistics after generation 41 are: Max Fitness = 1.0000, Average Fitness = 0.8688
+
+The statistics after generation 42 are: Max Fitness = 1.0000, Average Fitness = 0.8452
+
+The statistics after generation 43 are: Max Fitness = 1.0000, Average Fitness = 0.8426
+
+The statistics after generation 44 are: Max Fitness = 1.0000, Average Fitness = 0.8925
+
+The statistics after generation 45 are: Max Fitness = 1.0000, Average Fitness = 0.8490
+
+The statistics after generation 46 are: Max Fitness = 1.0000, Average Fitness = 0.9036
+
+The statistics after generation 47 are: Max Fitness = 1.0000, Average Fitness = 0.9332
+
+The statistics after generation 48 are: Max Fitness = 1.0000, Average Fitness = 0.9425
+
+The statistics after generation 49 are: Max Fitness = 1.0000, Average Fitness = 0.9333
+
+The statistics after generation 50 are: Max Fitness = 1.0000, Average Fitness = 0.9193
+
+The statistics after generation 51 are: Max Fitness = 1.0000, Average Fitness = 0.9193
