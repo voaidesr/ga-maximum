@@ -117,9 +117,30 @@ selectionFit cfg pop rng =
       q = V.fromList $ calcCumulative probs
       popV = V.fromList pop
       size = popSize cfg
-      (randomN, rng_) = genNRandomDoubles size rng
+      (randomN, rng_) = genNRandomDoubles (size - 1) rng
       selected = map (\u -> popV V.! binarySearch q u) randomN
    in (selected, rng_)
+
+logSelectionStep :: Handle -> (Double, Int, Individual) -> IO ()
+logSelectionStep h (p, idx, i) = do
+  hPrintf
+    h
+    "\nRandom number: %.3f. After binary search found interval with index: %d. Selecting individual:\n"
+    p
+    idx
+  logI h i
+
+selectionFitIO :: Handle -> Config -> [Individual] -> StdGen -> IO ()
+selectionFitIO h cfg pop rng = do
+  let probs = calcProb pop
+      q = V.fromList $ calcCumulative probs
+      popV = V.fromList pop
+      size = popSize cfg
+      (randomN, _) = genNRandomDoubles (size - 1) rng
+      indices = map (\u -> binarySearch q u) randomN
+      selected = map (\u -> popV V.! binarySearch q u) randomN
+      tossIdxSelected = zip3 randomN indices selected
+  mapM_ (logSelectionStep h) tossIdxSelected
 
 selectionElite :: [Individual] -> Individual
 selectionElite = maximumBy (compare `on` fitness)
@@ -215,6 +236,10 @@ logI h ind = do
     (trueVal ind)
     (fitness ind)
 
+logP :: Handle -> [Individual] -> IO ()
+logP h pop = do
+  mapM_ (logI h) pop
+
 logIProb :: Handle -> (Individual, Double) -> IO ()
 logIProb h (i, p) = do
   hPrintf h "Chrom: %s, Probability: %5.2f%%\n" (formatChrom $ chrom i) (p * 100)
@@ -270,7 +295,7 @@ main = do
     logMeta h testConfig
 
     hPutStrLn h "2. Initial Population:\n"
-    mapM_ (logI h) initialPop
+    logP h initialPop
 
     hPutStrLn h "\n3. Selection Probabilities:\n"
     logProbs h initialPop
@@ -284,3 +309,12 @@ main = do
     let eliteIndividual = selectionElite initialPop
     hPutStrLn h "Found elite individual, that passes in the next population:"
     logI h eliteIndividual
+
+    hPutStrLn h "\n5.2Selecting the next individuals through roulette selection:"
+
+    -- do this just for the IO, same rng so we will have the same results
+    selectionFitIO h testConfig initialPop rng
+    let (selected, rng1) = selectionFit testConfig initialPop rng
+
+    hPutStrLn h "\nThe selected population, based on fitness is:"
+    logP h selected

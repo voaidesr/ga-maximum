@@ -7,75 +7,155 @@ Search interval [-1.00, 2.00]
 
 2. Initial Population:
 
-Chrom: 001011001000 | Val: -0.4784 | Fit:  1.2928
-Chrom: 011110010111 | Val:  0.4234 | Fit:  2.2441
-Chrom: 001010110010 | Val: -0.4945 | Fit:  1.2610
-Chrom: 110011010100 | Val:  1.4059 | Fit:  1.4294
-Chrom: 110110000111 | Val:  1.5370 | Fit:  1.1746
-Chrom: 111011011001 | Val:  1.7846 | Fit:  0.5998
-Chrom: 100011110001 | Val:  0.6769 | Fit:  2.2187
-Chrom: 111000100100 | Val:  1.6520 | Fit:  0.9229
-Chrom: 000100111110 | Val: -0.7670 | Fit:  0.6446
-Chrom: 001110100011 | Val: -0.3179 | Fit:  1.5810
-Chrom: 010011110100 | Val: -0.0711 | Fit:  1.9239
-Chrom: 100010011001 | Val:  0.6125 | Fit:  2.2374
-Chrom: 001000000001 | Val: -0.6242 | Fit:  0.9862
-Chrom: 110100011100 | Val:  1.4586 | Fit:  1.3311
-Chrom: 101001101111 | Val:  0.9568 | Fit:  2.0414
-Chrom: 000011011010 | Val: -0.8403 | Fit:  0.4536
-Chrom: 100111010110 | Val:  0.8447 | Fit:  2.1312
-Chrom: 100111111111 | Val:  0.8747 | Fit:  2.1096
-Chrom: 100010011001 | Val:  0.6125 | Fit:  2.2374
-Chrom: 111011111000 | Val:  1.8073 | Fit:  0.5409
+Chrom: 110001000111 | Val:  1.3026 | Fit:  1.6059
+Chrom: 000100011000 | Val: -0.7949 | Fit:  0.5733
+Chrom: 101011101111 | Val:  1.0505 | Fit:  1.9469
+Chrom: 001110101101 | Val: -0.3106 | Fit:  1.5929
+Chrom: 011010101100 | Val:  0.2513 | Fit:  2.1881
+Chrom: 101110001010 | Val:  1.1641 | Fit:  1.8090
+Chrom: 101100000100 | Val:  1.0659 | Fit:  1.9297
+Chrom: 000010110101 | Val: -0.8674 | Fit:  0.3802
+Chrom: 100101101101 | Val:  0.7678 | Fit:  2.1783
+Chrom: 100001111010 | Val:  0.5897 | Fit:  2.2419
+Chrom: 000101001001 | Val: -0.7590 | Fit:  0.6650
+Chrom: 001111001010 | Val: -0.2894 | Fit:  1.6269
+Chrom: 000101000110 | Val: -0.7612 | Fit:  0.6594
+Chrom: 110101001001 | Val:  1.4916 | Fit:  1.2668
+Chrom: 100100011011 | Val:  0.7077 | Fit:  2.2069
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+Chrom: 000010110110 | Val: -0.8667 | Fit:  0.3822
+Chrom: 001111100000 | Val: -0.2733 | Fit:  1.6521
+Chrom: 001100100011 | Val: -0.4117 | Fit:  1.4188
+Chrom: 101001111011 | Val:  0.9656 | Fit:  2.0332
 
 3. Selection Probabilities:
 
-Chrom: 001011001000, Probability:  4.40%
-Chrom: 011110010111, Probability:  7.64%
-Chrom: 001010110010, Probability:  4.29%
-Chrom: 110011010100, Probability:  4.87%
-Chrom: 110110000111, Probability:  4.00%
-Chrom: 111011011001, Probability:  2.04%
-Chrom: 100011110001, Probability:  7.56%
-Chrom: 111000100100, Probability:  3.14%
-Chrom: 000100111110, Probability:  2.20%
-Chrom: 001110100011, Probability:  5.38%
-Chrom: 010011110100, Probability:  6.55%
-Chrom: 100010011001, Probability:  7.62%
-Chrom: 001000000001, Probability:  3.36%
-Chrom: 110100011100, Probability:  4.53%
-Chrom: 101001101111, Probability:  6.95%
-Chrom: 000011011010, Probability:  1.54%
-Chrom: 100111010110, Probability:  7.26%
-Chrom: 100111111111, Probability:  7.18%
-Chrom: 100010011001, Probability:  7.62%
-Chrom: 111011111000, Probability:  1.84%
+Chrom: 110001000111, Probability:  5.30%
+Chrom: 000100011000, Probability:  1.89%
+Chrom: 101011101111, Probability:  6.42%
+Chrom: 001110101101, Probability:  5.25%
+Chrom: 011010101100, Probability:  7.22%
+Chrom: 101110001010, Probability:  5.97%
+Chrom: 101100000100, Probability:  6.37%
+Chrom: 000010110101, Probability:  1.25%
+Chrom: 100101101101, Probability:  7.19%
+Chrom: 100001111010, Probability:  7.39%
+Chrom: 000101001001, Probability:  2.19%
+Chrom: 001111001010, Probability:  5.37%
+Chrom: 000101000110, Probability:  2.18%
+Chrom: 110101001001, Probability:  4.18%
+Chrom: 100100011011, Probability:  7.28%
+Chrom: 010100100000, Probability:  6.46%
+Chrom: 000010110110, Probability:  1.26%
+Chrom: 001111100000, Probability:  5.45%
+Chrom: 001100100011, Probability:  4.68%
+Chrom: 101001111011, Probability:  6.71%
 
 4. Selection Intervals:
 
-Interval 1: [ 0.00,  0.04)
-Interval 2: [ 0.04,  0.12)
-Interval 3: [ 0.12,  0.16)
-Interval 4: [ 0.16,  0.21)
-Interval 5: [ 0.21,  0.25)
-Interval 6: [ 0.25,  0.27)
-Interval 7: [ 0.27,  0.35)
-Interval 8: [ 0.35,  0.38)
-Interval 9: [ 0.38,  0.40)
-Interval 10: [ 0.40,  0.46)
-Interval 11: [ 0.46,  0.52)
-Interval 12: [ 0.52,  0.60)
-Interval 13: [ 0.60,  0.63)
-Interval 14: [ 0.63,  0.68)
+Interval 1: [ 0.00,  0.05)
+Interval 2: [ 0.05,  0.07)
+Interval 3: [ 0.07,  0.14)
+Interval 4: [ 0.14,  0.19)
+Interval 5: [ 0.19,  0.26)
+Interval 6: [ 0.26,  0.32)
+Interval 7: [ 0.32,  0.38)
+Interval 8: [ 0.38,  0.40)
+Interval 9: [ 0.40,  0.47)
+Interval 10: [ 0.47,  0.54)
+Interval 11: [ 0.54,  0.56)
+Interval 12: [ 0.56,  0.62)
+Interval 13: [ 0.62,  0.64)
+Interval 14: [ 0.64,  0.68)
 Interval 15: [ 0.68,  0.75)
-Interval 16: [ 0.75,  0.76)
-Interval 17: [ 0.76,  0.83)
-Interval 18: [ 0.83,  0.91)
-Interval 19: [ 0.91,  0.98)
-Interval 20: [ 0.98,  1.00)
+Interval 16: [ 0.75,  0.82)
+Interval 17: [ 0.82,  0.83)
+Interval 18: [ 0.83,  0.89)
+Interval 19: [ 0.89,  0.93)
+Interval 20: [ 0.93,  1.00)
 
 5. Selection Begins:
 
 5.1. Select elite:
 Found elite individual, that passes in the next population:
-Chrom: 011110010111 | Val:  0.4234 | Fit:  2.2441
+Chrom: 100001111010 | Val:  0.5897 | Fit:  2.2419
+
+5.2Selecting the next individuals through roulette selection:
+
+Random number: 0.165. After binary search found interval with index: 3. Selecting individual:
+Chrom: 001110101101 | Val: -0.3106 | Fit:  1.5929
+
+Random number: 0.202. After binary search found interval with index: 4. Selecting individual:
+Chrom: 011010101100 | Val:  0.2513 | Fit:  2.1881
+
+Random number: 0.460. After binary search found interval with index: 8. Selecting individual:
+Chrom: 100101101101 | Val:  0.7678 | Fit:  2.1783
+
+Random number: 0.762. After binary search found interval with index: 15. Selecting individual:
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+
+Random number: 0.328. After binary search found interval with index: 6. Selecting individual:
+Chrom: 101100000100 | Val:  1.0659 | Fit:  1.9297
+
+Random number: 0.190. After binary search found interval with index: 4. Selecting individual:
+Chrom: 011010101100 | Val:  0.2513 | Fit:  2.1881
+
+Random number: 0.915. After binary search found interval with index: 18. Selecting individual:
+Chrom: 001100100011 | Val: -0.4117 | Fit:  1.4188
+
+Random number: 0.996. After binary search found interval with index: 19. Selecting individual:
+Chrom: 101001111011 | Val:  0.9656 | Fit:  2.0332
+
+Random number: 0.686. After binary search found interval with index: 14. Selecting individual:
+Chrom: 100100011011 | Val:  0.7077 | Fit:  2.2069
+
+Random number: 0.081. After binary search found interval with index: 2. Selecting individual:
+Chrom: 101011101111 | Val:  1.0505 | Fit:  1.9469
+
+Random number: 0.470. After binary search found interval with index: 9. Selecting individual:
+Chrom: 100001111010 | Val:  0.5897 | Fit:  2.2419
+
+Random number: 0.771. After binary search found interval with index: 15. Selecting individual:
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+
+Random number: 0.687. After binary search found interval with index: 14. Selecting individual:
+Chrom: 100100011011 | Val:  0.7077 | Fit:  2.2069
+
+Random number: 0.088. After binary search found interval with index: 2. Selecting individual:
+Chrom: 101011101111 | Val:  1.0505 | Fit:  1.9469
+
+Random number: 0.618. After binary search found interval with index: 12. Selecting individual:
+Chrom: 000101000110 | Val: -0.7612 | Fit:  0.6594
+
+Random number: 0.036. After binary search found interval with index: 0. Selecting individual:
+Chrom: 110001000111 | Val:  1.3026 | Fit:  1.6059
+
+Random number: 0.805. After binary search found interval with index: 15. Selecting individual:
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+
+Random number: 0.793. After binary search found interval with index: 15. Selecting individual:
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+
+Random number: 0.648. After binary search found interval with index: 13. Selecting individual:
+Chrom: 110101001001 | Val:  1.4916 | Fit:  1.2668
+
+The selected population, based on fitness is:
+Chrom: 001110101101 | Val: -0.3106 | Fit:  1.5929
+Chrom: 011010101100 | Val:  0.2513 | Fit:  2.1881
+Chrom: 100101101101 | Val:  0.7678 | Fit:  2.1783
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+Chrom: 101100000100 | Val:  1.0659 | Fit:  1.9297
+Chrom: 011010101100 | Val:  0.2513 | Fit:  2.1881
+Chrom: 001100100011 | Val: -0.4117 | Fit:  1.4188
+Chrom: 101001111011 | Val:  0.9656 | Fit:  2.0332
+Chrom: 100100011011 | Val:  0.7077 | Fit:  2.2069
+Chrom: 101011101111 | Val:  1.0505 | Fit:  1.9469
+Chrom: 100001111010 | Val:  0.5897 | Fit:  2.2419
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+Chrom: 100100011011 | Val:  0.7077 | Fit:  2.2069
+Chrom: 101011101111 | Val:  1.0505 | Fit:  1.9469
+Chrom: 000101000110 | Val: -0.7612 | Fit:  0.6594
+Chrom: 110001000111 | Val:  1.3026 | Fit:  1.6059
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+Chrom: 010100100000 | Val: -0.0388 | Fit:  1.9597
+Chrom: 110101001001 | Val:  1.4916 | Fit:  1.2668
