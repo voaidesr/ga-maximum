@@ -215,6 +215,31 @@ logI h ind = do
     (trueVal ind)
     (fitness ind)
 
+logIProb :: Handle -> (Individual, Double) -> IO ()
+logIProb h (i, p) = do
+  hPrintf h "Chrom: %s, Probability: %5.2f%%\n" (formatChrom $ chrom i) (p * 100)
+
+logProbs :: Handle -> [Individual] -> IO ()
+logProbs h pop = do
+  let ps = calcProb pop
+  mapM_ (logIProb h) (zip pop ps)
+
+_makeIntervals :: [a] -> [(a, a)]
+_makeIntervals [] = []
+_makeIntervals [_] = []
+_makeIntervals (x : y : xs) = (x, y) : _makeIntervals (y : xs)
+
+_logInterval :: Handle -> (Int, (Double, Double)) -> IO ()
+_logInterval h (idx, (l, r)) = do
+  hPrintf h "Interval %d: [%5.2f, %5.2f)\n" idx l r
+
+logIntervals :: Handle -> [Individual] -> IO ()
+logIntervals h pop = do
+  let ps = calcProb pop
+      cumulative = calcCumulative ps
+      intervals = zip [1 ..] (_makeIntervals cumulative)
+  mapM_ (_logInterval h) intervals
+
 -- logP :: Handle -> [Individual] -> IO ()
 -- logI h pop = do
 -- let probs = calcProb pop
@@ -239,6 +264,23 @@ main = do
   let (initialPop, _) = makePopulation testConfig rng
 
   withFile "Evolutie.txt" WriteMode $ \h -> do
-    hPutStrLn h "Start Algorithm:\n"
+    hPutStrLn h "0. Start Algorithm:\n"
+
+    hPutStrLn h "1. Metadata:\n"
     logMeta h testConfig
+
+    hPutStrLn h "2. Initial Population:\n"
     mapM_ (logI h) initialPop
+
+    hPutStrLn h "\n3. Selection Probabilities:\n"
+    logProbs h initialPop
+
+    hPutStrLn h "\n4. Selection Intervals:\n"
+    logIntervals h initialPop
+
+    hPutStrLn h "\n5. Selection Begins:"
+    hPutStrLn h "\n5.1. Select elite:"
+
+    let eliteIndividual = selectionElite initialPop
+    hPutStrLn h "Found elite individual, that passes in the next population:"
+    logI h eliteIndividual
