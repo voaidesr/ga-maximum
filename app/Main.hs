@@ -130,6 +130,9 @@ logSelectionStep h (p, idx, i) = do
     idx
   logI h i
 
+-- this is rather hacky as I do the same computation twice
+-- it would be optimal to return the metadata in selectionFit (i.e, randomN, indices)
+-- and here to just to the IO
 selectionFitIO :: Handle -> Config -> [Individual] -> StdGen -> IO ()
 selectionFitIO h cfg pop rng = do
   let probs = calcProb pop
@@ -137,7 +140,7 @@ selectionFitIO h cfg pop rng = do
       popV = V.fromList pop
       size = popSize cfg
       (randomN, _) = genNRandomDoubles (size - 1) rng
-      indices = map (\u -> binarySearch q u) randomN
+      indices = map (binarySearch q) randomN
       selected = map (\u -> popV V.! binarySearch q u) randomN
       tossIdxSelected = zip3 randomN indices selected
   mapM_ (logSelectionStep h) tossIdxSelected
@@ -161,7 +164,7 @@ _chooseCross cfg pop rng =
       p2 = map fst p2_
    in (p1, p2, rng_)
 
-_crossOver :: Config -> (Individual, Individual) -> StdGen -> ([Individual], StdGen)
+_crossOver :: Config -> (Individual, Individual) -> StdGen -> ([Individual], Int, StdGen)
 _crossOver cfg (i1, i2) rng =
   let c1 = chrom i1
       c2 = chrom i2
@@ -171,14 +174,14 @@ _crossOver cfg (i1, i2) rng =
       (c21, c22) = splitAt k c2
       i1_ = makeIndividual cfg (c11 ++ c22)
       i2_ = makeIndividual cfg (c21 ++ c12)
-   in ([i1_, i2_], rng_)
+   in ([i1_, i2_], k, rng_)
 
-crossOver :: Config -> [(Individual, Individual)] -> StdGen -> ([Individual], StdGen)
-crossOver _ [] rng = ([], rng)
+crossOver :: Config -> [(Individual, Individual)] -> StdGen -> ([Individual], [Int], StdGen)
+crossOver _ [] rng = ([], [], rng)
 crossOver cfg (x : xs) rng =
-  let (l1, rng1) = _crossOver cfg x rng
-      (l2, rng2) = crossOver cfg xs rng1
-   in (l1 ++ l2, rng2)
+  let (l1, k, rng1) = _crossOver cfg x rng
+      (l2, ks, rng2) = crossOver cfg xs rng1
+   in (l1 ++ l2, k : ks, rng2)
 
 complementBit :: Bit -> Bit
 complementBit 0 = 1
@@ -265,6 +268,15 @@ logIntervals h pop = do
       intervals = zip [1 ..] (_makeIntervals cumulative)
   mapM_ (_logInterval h) intervals
 
+logPair :: Handle -> ((Individual, Individual), Int) -> IO ()
+logPair h ((i1, i2), k) = do
+  hPrintf
+    h
+    "(%s, %s) | Crossover point: %d\n"
+    (formatChrom $ chrom i1)
+    (formatChrom $ chrom i2)
+    k
+
 -- logP :: Handle -> [Individual] -> IO ()
 -- logI h pop = do
 -- let probs = calcProb pop
@@ -279,7 +291,7 @@ main = do
             domain = d,
             coeffs = (-1.0, 1.0, 2.0),
             precision = p,
-            crossProb = 0.25,
+            crossProb = 0.45,
             mutProb = 0.01,
             numSteps = 50,
             chromLen = chromLength d p
@@ -307,10 +319,10 @@ main = do
     hPutStrLn h "\n5.1. Select elite:"
 
     let eliteIndividual = selectionElite initialPop
-    hPutStrLn h "Found elite individual, that passes in the next population:"
+    hPutStrLn h "Found elite individual, that passes directly into the next generation:"
     logI h eliteIndividual
 
-    hPutStrLn h "\n5.2Selecting the next individuals through roulette selection:"
+    hPutStrLn h "\n5.2 Selecting the next individuals through roulette selection:"
 
     -- do this just for the IO, same rng so we will have the same results
     selectionFitIO h testConfig initialPop rng
@@ -318,3 +330,19 @@ main = do
 
     hPutStrLn h "\nThe selected population, based on fitness is:"
     logP h selected
+
+    hPutStrLn h "\n6.Crossover:"
+
+    let (toCross, toPass, rng2) = _chooseCross testConfig initialPop rng1
+        (parents, remaining) = _groupParents toCross
+        toPass_ = toPass ++ remaining
+        (resultCross, ks, rng3) = crossOver testConfig parents rng2
+
+    hPutStrLn h "\n6.1. The pairs that take part in the crossover are:"
+    mapM_ (logPair h) (zip parents ks)
+
+    hPutStrLn h "\n6.2. The resulted individuals are:"
+    logP h resultCross
+
+    hPutStrLn h "\n6.3. The remaining population is:"
+    logP h (resultCross ++ toPass_)
