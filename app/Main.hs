@@ -339,7 +339,7 @@ main = do
 
     hPutStrLn h "\n6.Crossover:"
 
-    let (toCross, toPass, rng2) = _chooseCross testConfig initialPop rng1
+    let (toCross, toPass, rng2) = _chooseCross testConfig selected rng1
         (parents, remaining) = _groupParents toCross
         toPass_ = toPass ++ remaining
         (resultCross, ks, rng3) = crossOver testConfig parents rng2
