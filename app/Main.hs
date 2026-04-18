@@ -397,12 +397,8 @@ main = do
     hPutStrLn h "The elite individual and this remaining population combined pass into the second generation."
 
     let nextGenPop = eliteIndividual : popAfterMut
-    hPrintf
-      h
-      "\n8. Repeating the process for %2d generations:\nThe statistics after the first generation are: Max Fitness = %.4f, Average Fitness = %.4f\n"
-      (numSteps cfg)
-      (maxFit nextGenPop)
-      (averageFit nextGenPop)
+    hPrintf h "\n8. Repeating the process for %d generations:\n" (numSteps cfg)
+    logFits h cfg (1, (maxFit nextGenPop, averageFit nextGenPop))
 
     let (_, fits, _) = simulateNGenerations cfg (numSteps cfg - 1) nextGenPop rng4
         fitsIdx = zip [2 ..] fits

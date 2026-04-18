@@ -8,126 +8,123 @@ Precision 8, Chromosome Length: 27
 
 2. Initial Population:
 
-Chrom: 111100000010101010101010110 | Val: 1.43815105 | Fit: 0.42407096
-Chrom: 110010011001110011111101111 | Val: 1.28755176 | Fit: 0.75194196
-Chrom: 010110110110111011001001011 | Val: 0.85715922 | Fit: 0.93878954
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
-Chrom: 101110111000110000101000110 | Val: 1.23260741 | Fit: 0.83768137
+Chrom: 010010100000000001111110111 | Val: 0.78907006 | Fit: 0.86652569
+Chrom: 101011100110000010100100011 | Val: 1.18116215 | Fit: 0.90154083
+Chrom: 111010010101101011010000110 | Val: 1.41154199 | Fit: 0.49189957
+Chrom: 010000011010111000000001010 | Val: 0.75656136 | Fit: 0.82221288
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
 3. Selection Probabilities:
 
-Chrom: 111100000010101010101010110, Probability: 11.105%
-Chrom: 110010011001110011111101111, Probability: 19.691%
-Chrom: 010110110110111011001001011, Probability: 24.584%
-Chrom: 010010011111000000110010101, Probability: 22.683%
-Chrom: 101110111000110000101000110, Probability: 21.936%
+Chrom: 010010100000000001111110111, Probability: 21.271%
+Chrom: 101011100110000010100100011, Probability: 22.131%
+Chrom: 111010010101101011010000110, Probability: 12.075%
+Chrom: 010000011010111000000001010, Probability: 20.183%
+Chrom: 100011011001001101111010111, Probability: 24.340%
 
 4. Selection Intervals:
 
-Interval 1: [0.000, 0.111)
-Interval 2: [0.111, 0.308)
-Interval 3: [0.308, 0.554)
-Interval 4: [0.554, 0.781)
-Interval 5: [0.781, 1.000)
+Interval 1: [0.000, 0.213)
+Interval 2: [0.213, 0.434)
+Interval 3: [0.434, 0.555)
+Interval 4: [0.555, 0.757)
+Interval 5: [0.757, 1.000)
 
 5. Selection Begins:
 
 5.1. Select elite:
 Found elite individual, that passes directly into the next generation:
-Chrom: 010110110110111011001001011 | Val: 0.85715922 | Fit: 0.93878954
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
 5.2 Selecting the next individuals through roulette selection:
 
-Random number: 0.035. After binary search found interval with index: 0. Selecting individual:
-Chrom: 111100000010101010101010110 | Val: 1.43815105 | Fit: 0.42407096
+Random number: 0.258. After binary search found interval with index: 1. Selecting individual:
+Chrom: 101011100110000010100100011 | Val: 1.18116215 | Fit: 0.90154083
 
-Random number: 0.791. After binary search found interval with index: 4. Selecting individual:
-Chrom: 101110111000110000101000110 | Val: 1.23260741 | Fit: 0.83768137
+Random number: 0.010. After binary search found interval with index: 0. Selecting individual:
+Chrom: 010010100000000001111110111 | Val: 0.78907006 | Fit: 0.86652569
 
-Random number: 0.556. After binary search found interval with index: 3. Selecting individual:
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
+Random number: 0.857. After binary search found interval with index: 4. Selecting individual:
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
-Random number: 0.575. After binary search found interval with index: 3. Selecting individual:
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
+Random number: 0.876. After binary search found interval with index: 4. Selecting individual:
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
 The selected population, based on fitness is:
-Chrom: 111100000010101010101010110 | Val: 1.43815105 | Fit: 0.42407096
-Chrom: 101110111000110000101000110 | Val: 1.23260741 | Fit: 0.83768137
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
+Chrom: 101011100110000010100100011 | Val: 1.18116215 | Fit: 0.90154083
+Chrom: 010010100000000001111110111 | Val: 0.78907006 | Fit: 0.86652569
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
 6.Crossover:
 
 6.1. The pairs that take part in the crossover are:
-(111100000010101010101010110, 010010011111000000110010101) | Crossover point: 25
 
 6.2. The resulted individuals are:
-Chrom: 111100000010101010101010101 | Val: 1.43815105 | Fit: 0.42407098
-Chrom: 010010011111000000110010110 | Val: 0.78882139 | Fit: 0.86621078
 
 6.3. The population after the crossover process is:
-Chrom: 111100000010101010101010101 | Val: 1.43815105 | Fit: 0.42407098
-Chrom: 010010011111000000110010110 | Val: 0.78882139 | Fit: 0.86621078
-Chrom: 101110111000110000101000110 | Val: 1.23260741 | Fit: 0.83768137
-Chrom: 010010011111000000110010101 | Val: 0.78882138 | Fit: 0.86621077
+Chrom: 101011100110000010100100011 | Val: 1.18116215 | Fit: 0.90154083
+Chrom: 010010100000000001111110111 | Val: 0.78907006 | Fit: 0.86652569
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
+Chrom: 100011011001001101111010111 | Val: 1.05303162 | Fit: 0.99156294
 
 7. The population after the mutation process is:
-Chrom: 011100000010001010101110111 | Val: 0.93802923 | Fit: 0.98847887
-Chrom: 010010001111000000110001010 | Val: 0.78491505 | Fit: 0.86121539
-Chrom: 101110111100110100111010110 | Val: 1.23360031 | Fit: 0.83629269
-Chrom: 111010001111000001000010101 | Val: 1.40991609 | Fit: 0.49590640
+Chrom: 101111100110000011100100111 | Val: 1.24366599 | Fit: 0.82188065
+Chrom: 010010100010101001111110110 | Val: 0.78971093 | Fit: 0.86733552
+Chrom: 100010011001001100011010111 | Val: 1.03740090 | Fit: 0.99580352
+Chrom: 100011001001000101111010110 | Val: 1.04909484 | Fit: 0.99276909
 
 Each bit had a probability of 15.00% to mutate.
 The elite individual and this remaining population combined pass into the second generation.
 
 8. Repeating the process for 50 generations:
-The statistics after the first generation are: Max Fitness = 0.9885, Average Fitness = 0.8241
-The statistics after generation  2 are: Max Fitness = 0.98847887, Average Fitness = 0.71795363
-The statistics after generation  3 are: Max Fitness = 0.98847887, Average Fitness = 0.62133718
-The statistics after generation  4 are: Max Fitness = 0.99120090, Average Fitness = 0.81746156
-The statistics after generation  5 are: Max Fitness = 0.99120090, Average Fitness = 0.87561299
-The statistics after generation  6 are: Max Fitness = 0.99120090, Average Fitness = 0.78992249
-The statistics after generation  7 are: Max Fitness = 0.99120090, Average Fitness = 0.82244079
-The statistics after generation  8 are: Max Fitness = 0.99716835, Average Fitness = 0.97774200
-The statistics after generation  9 are: Max Fitness = 0.99955581, Average Fitness = 0.87634550
-The statistics after generation 10 are: Max Fitness = 0.99955581, Average Fitness = 0.67032221
-The statistics after generation 11 are: Max Fitness = 0.99955581, Average Fitness = 0.86246249
-The statistics after generation 12 are: Max Fitness = 0.99955581, Average Fitness = 0.89045941
-The statistics after generation 13 are: Max Fitness = 0.99955581, Average Fitness = 0.71568822
-The statistics after generation 14 are: Max Fitness = 0.99957291, Average Fitness = 0.83038735
-The statistics after generation 15 are: Max Fitness = 0.99999275, Average Fitness = 0.98135351
-The statistics after generation 16 are: Max Fitness = 0.99999295, Average Fitness = 0.99158105
-The statistics after generation 17 are: Max Fitness = 0.99999295, Average Fitness = 0.90211195
-The statistics after generation 18 are: Max Fitness = 0.99999295, Average Fitness = 0.94124677
-The statistics after generation 19 are: Max Fitness = 0.99999295, Average Fitness = 0.72322394
-The statistics after generation 20 are: Max Fitness = 0.99999295, Average Fitness = 0.90274574
-The statistics after generation 21 are: Max Fitness = 0.99999295, Average Fitness = 0.87913061
-The statistics after generation 22 are: Max Fitness = 0.99999295, Average Fitness = 0.65437710
-The statistics after generation 23 are: Max Fitness = 0.99999295, Average Fitness = 0.84784482
-The statistics after generation 24 are: Max Fitness = 0.99999295, Average Fitness = 0.84550325
-The statistics after generation 25 are: Max Fitness = 0.99999295, Average Fitness = 0.99686759
-The statistics after generation 26 are: Max Fitness = 0.99999295, Average Fitness = 0.93262857
-The statistics after generation 27 are: Max Fitness = 0.99999295, Average Fitness = 0.61040339
-The statistics after generation 28 are: Max Fitness = 0.99999295, Average Fitness = 0.67504693
-The statistics after generation 29 are: Max Fitness = 0.99999295, Average Fitness = 0.88928757
-The statistics after generation 30 are: Max Fitness = 0.99999295, Average Fitness = 0.98910570
-The statistics after generation 31 are: Max Fitness = 0.99999674, Average Fitness = 0.98998081
-The statistics after generation 32 are: Max Fitness = 0.99999674, Average Fitness = 0.98626007
-The statistics after generation 33 are: Max Fitness = 0.99999674, Average Fitness = 0.92502544
-The statistics after generation 34 are: Max Fitness = 0.99999674, Average Fitness = 0.78512114
-The statistics after generation 35 are: Max Fitness = 0.99999674, Average Fitness = 0.74457311
-The statistics after generation 36 are: Max Fitness = 0.99999674, Average Fitness = 0.92204394
-The statistics after generation 37 are: Max Fitness = 0.99999674, Average Fitness = 0.56535349
-The statistics after generation 38 are: Max Fitness = 0.99999674, Average Fitness = 0.77269803
-The statistics after generation 39 are: Max Fitness = 0.99999674, Average Fitness = 0.87889971
-The statistics after generation 40 are: Max Fitness = 0.99999674, Average Fitness = 0.95846588
-The statistics after generation 41 are: Max Fitness = 0.99999674, Average Fitness = 0.84534550
-The statistics after generation 42 are: Max Fitness = 0.99999674, Average Fitness = 0.92675778
-The statistics after generation 43 are: Max Fitness = 0.99999674, Average Fitness = 0.92983235
-The statistics after generation 44 are: Max Fitness = 0.99999989, Average Fitness = 0.78753891
-The statistics after generation 45 are: Max Fitness = 0.99999989, Average Fitness = 0.82982134
-The statistics after generation 46 are: Max Fitness = 0.99999998, Average Fitness = 0.99967029
-The statistics after generation 47 are: Max Fitness = 0.99999998, Average Fitness = 0.95664009
-The statistics after generation 48 are: Max Fitness = 0.99999998, Average Fitness = 0.79192938
-The statistics after generation 49 are: Max Fitness = 1.00000000, Average Fitness = 0.93600840
-The statistics after generation 50 are: Max Fitness = 1.00000000, Average Fitness = 0.93600840
+The statistics after generation  1 are: Max Fitness = 0.99580352, Average Fitness = 0.93387034
+The statistics after generation  2 are: Max Fitness = 0.99580352, Average Fitness = 0.79432246
+The statistics after generation  3 are: Max Fitness = 0.99580352, Average Fitness = 0.75292868
+The statistics after generation  4 are: Max Fitness = 0.99580352, Average Fitness = 0.90291500
+The statistics after generation  5 are: Max Fitness = 0.99580352, Average Fitness = 0.74205283
+The statistics after generation  6 are: Max Fitness = 0.99580352, Average Fitness = 0.90585957
+The statistics after generation  7 are: Max Fitness = 0.99586164, Average Fitness = 0.88508647
+The statistics after generation  8 are: Max Fitness = 0.99586164, Average Fitness = 0.91688499
+The statistics after generation  9 are: Max Fitness = 0.99586164, Average Fitness = 0.69673994
+The statistics after generation 10 are: Max Fitness = 0.99586164, Average Fitness = 0.79525679
+The statistics after generation 11 are: Max Fitness = 0.99586164, Average Fitness = 0.91957915
+The statistics after generation 12 are: Max Fitness = 0.99586164, Average Fitness = 0.79064510
+The statistics after generation 13 are: Max Fitness = 0.99586164, Average Fitness = 0.85261049
+The statistics after generation 14 are: Max Fitness = 0.99769288, Average Fitness = 0.77823216
+The statistics after generation 15 are: Max Fitness = 0.99800693, Average Fitness = 0.89867450
+The statistics after generation 16 are: Max Fitness = 0.99999955, Average Fitness = 0.86148369
+The statistics after generation 17 are: Max Fitness = 0.99999955, Average Fitness = 0.86405201
+The statistics after generation 18 are: Max Fitness = 0.99999955, Average Fitness = 0.79999235
+The statistics after generation 19 are: Max Fitness = 0.99999955, Average Fitness = 0.73989260
+The statistics after generation 20 are: Max Fitness = 0.99999955, Average Fitness = 0.75380693
+The statistics after generation 21 are: Max Fitness = 0.99999955, Average Fitness = 0.88723419
+The statistics after generation 22 are: Max Fitness = 0.99999955, Average Fitness = 0.95100950
+The statistics after generation 23 are: Max Fitness = 0.99999955, Average Fitness = 0.99362106
+The statistics after generation 24 are: Max Fitness = 0.99999955, Average Fitness = 0.82861721
+The statistics after generation 25 are: Max Fitness = 0.99999955, Average Fitness = 0.93088188
+The statistics after generation 26 are: Max Fitness = 0.99999955, Average Fitness = 0.97273745
+The statistics after generation 27 are: Max Fitness = 0.99999955, Average Fitness = 0.71852506
+The statistics after generation 28 are: Max Fitness = 0.99999955, Average Fitness = 0.92792057
+The statistics after generation 29 are: Max Fitness = 0.99999955, Average Fitness = 0.96713018
+The statistics after generation 30 are: Max Fitness = 0.99999955, Average Fitness = 0.89745969
+The statistics after generation 31 are: Max Fitness = 0.99999955, Average Fitness = 0.98390337
+The statistics after generation 32 are: Max Fitness = 0.99999955, Average Fitness = 0.84436627
+The statistics after generation 33 are: Max Fitness = 0.99999955, Average Fitness = 0.90807398
+The statistics after generation 34 are: Max Fitness = 0.99999956, Average Fitness = 0.86328262
+The statistics after generation 35 are: Max Fitness = 0.99999956, Average Fitness = 0.92494993
+The statistics after generation 36 are: Max Fitness = 0.99999956, Average Fitness = 0.75127670
+The statistics after generation 37 are: Max Fitness = 0.99999956, Average Fitness = 0.89787833
+The statistics after generation 38 are: Max Fitness = 0.99999956, Average Fitness = 0.89312405
+The statistics after generation 39 are: Max Fitness = 0.99999956, Average Fitness = 0.96880135
+The statistics after generation 40 are: Max Fitness = 0.99999956, Average Fitness = 0.94494769
+The statistics after generation 41 are: Max Fitness = 0.99999956, Average Fitness = 0.89075353
+The statistics after generation 42 are: Max Fitness = 0.99999956, Average Fitness = 0.77015290
+The statistics after generation 43 are: Max Fitness = 0.99999956, Average Fitness = 0.83388814
+The statistics after generation 44 are: Max Fitness = 0.99999956, Average Fitness = 0.77251885
+The statistics after generation 45 are: Max Fitness = 0.99999980, Average Fitness = 0.89507124
+The statistics after generation 46 are: Max Fitness = 0.99999980, Average Fitness = 0.70246013
+The statistics after generation 47 are: Max Fitness = 0.99999980, Average Fitness = 0.85498821
+The statistics after generation 48 are: Max Fitness = 0.99999980, Average Fitness = 0.86903513
+The statistics after generation 49 are: Max Fitness = 0.99999980, Average Fitness = 0.96898798
+The statistics after generation 50 are: Max Fitness = 0.99999980, Average Fitness = 0.96898798
