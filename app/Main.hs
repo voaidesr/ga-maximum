@@ -121,14 +121,14 @@ selectionFit cfg pop rng =
       selected = map (\u -> popV V.! binarySearch q u) randomN
    in (selected, rng_)
 
-logSelectionStep :: Handle -> (Double, Int, Individual) -> IO ()
-logSelectionStep h (p, idx, i) = do
+logSelectionStep :: Handle -> Config -> (Double, Int, Individual) -> IO ()
+logSelectionStep h cfg (p, idx, i) = do
   hPrintf
     h
     "\nRandom number: %.3f. After binary search found interval with index: %d. Selecting individual:\n"
     p
     idx
-  logI h i
+  logI h cfg i
 
 -- this is rather hacky as I do the same computation twice
 -- it would be optimal to return the metadata in selectionFit (i.e, randomN, indices)
@@ -143,7 +143,7 @@ selectionFitIO h cfg pop rng = do
       indices = map (binarySearch q) randomN
       selected = map (\u -> popV V.! binarySearch q u) randomN
       tossIdxSelected = zip3 randomN indices selected
-  mapM_ (logSelectionStep h) tossIdxSelected
+  mapM_ (logSelectionStep h cfg) tossIdxSelected
 
 selectionElite :: [Individual] -> Individual
 selectionElite = maximumBy (compare `on` fitness)
@@ -218,7 +218,7 @@ averageFit :: [Individual] -> Double
 averageFit pop = sum (map fitness pop) / fromIntegral (length pop)
 
 simulateNGenerations :: Config -> Int -> [Individual] -> StdGen -> ([Individual], [(Double, Double)], StdGen)
-simulateNGenerations _ 0 pop rng =
+simulateNGenerations _ 1 pop rng =
   let maxF = maxFit pop
       avgF = averageFit pop
    in (pop, [(maxF, avgF)], rng)
@@ -251,26 +251,33 @@ logMeta h cfg = do
     c
   hPrintf
     h
-    "Search interval [%.2f, %.2f]\n\n"
+    "Search interval [%.2f, %.2f]\n"
     s
     d
-
-logI :: Handle -> Individual -> IO ()
-logI h ind = do
   hPrintf
     h
-    "Chrom: %s | Val: %7.4f | Fit: %7.4f\n"
+    "Precision %d, Chromosome Length: %d\n\n"
+    (precision cfg)
+    (chromLen cfg)
+
+logI :: Handle -> Config -> Individual -> IO ()
+logI h cfg ind = do
+  hPrintf
+    h
+    "Chrom: %s | Val: %7.*f | Fit: %7.*f\n"
     (formatChrom $ chrom ind)
+    (precision cfg)
     (trueVal ind)
+    (precision cfg)
     (fitness ind)
 
-logP :: Handle -> [Individual] -> IO ()
-logP h pop = do
-  mapM_ (logI h) pop
+logP :: Handle -> Config -> [Individual] -> IO ()
+logP h cfg pop = do
+  mapM_ (logI h cfg) pop
 
 logIProb :: Handle -> (Individual, Double) -> IO ()
 logIProb h (i, p) = do
-  hPrintf h "Chrom: %s, Probability: %5.2f%%\n" (formatChrom $ chrom i) (p * 100)
+  hPrintf h "Chrom: %s, Probability: %5.3f%%\n" (formatChrom $ chrom i) (p * 100)
 
 logProbs :: Handle -> [Individual] -> IO ()
 logProbs h pop = do
@@ -284,7 +291,7 @@ _makeIntervals (x : y : xs) = (x, y) : _makeIntervals (y : xs)
 
 _logInterval :: Handle -> (Int, (Double, Double)) -> IO ()
 _logInterval h (idx, (l, r)) = do
-  hPrintf h "Interval %d: [%5.2f, %5.2f)\n" idx l r
+  hPrintf h "Interval %d: [%5.3f, %5.3f)\n" idx l r
 
 logIntervals :: Handle -> [Individual] -> IO ()
 logIntervals h pop = do
@@ -302,42 +309,44 @@ logPair h ((i1, i2), k) = do
     (formatChrom $ chrom i2)
     k
 
-logFits :: Handle -> (Int, (Double, Double)) -> IO ()
-logFits h (idx, (m, a)) = do
+logFits :: Handle -> Config -> (Int, (Double, Double)) -> IO ()
+logFits h cfg (idx, (m, a)) = do
   hPrintf
     h
-    "\nThe statistics after generation %d are: Max Fitness = %.4f, Average Fitness = %.4f\n"
+    "The statistics after generation %2d are: Max Fitness = %.*f, Average Fitness = %.*f\n"
     idx
+    (precision cfg)
     m
+    (precision cfg)
     a
 
 main :: IO ()
 main = do
   let d = (0.5, 1.5)
-  let p = 3
-  let testConfig =
+  let p = 8
+  let cfg =
         Config
-          { popSize = 20,
+          { popSize = 5,
             domain = d,
             coeffs = (-3.0, 6.0, -2.0),
             precision = p,
             crossProb = 0.35,
-            mutProb = 0.05,
+            mutProb = 0.15,
             numSteps = 50,
             chromLen = chromLength d p
           }
 
   rng <- getStdGen
-  let (initialPop, _) = makePopulation testConfig rng
+  let (initialPop, _) = makePopulation cfg rng
 
   withFile "Evolutie.txt" WriteMode $ \h -> do
     hPutStrLn h "0. Start Algorithm:\n"
 
     hPutStrLn h "1. Metadata:\n"
-    logMeta h testConfig
+    logMeta h cfg
 
     hPutStrLn h "2. Initial Population:\n"
-    logP h initialPop
+    logP h cfg initialPop
 
     hPutStrLn h "\n3. Selection Probabilities:\n"
     logProbs h initialPop
@@ -350,51 +359,52 @@ main = do
 
     let eliteIndividual = selectionElite initialPop
     hPutStrLn h "Found elite individual, that passes directly into the next generation:"
-    logI h eliteIndividual
+    logI h cfg eliteIndividual
 
     hPutStrLn h "\n5.2 Selecting the next individuals through roulette selection:"
 
     -- do this just for the IO, same rng so we will have the same results
-    selectionFitIO h testConfig initialPop rng
-    let (selected, rng1) = selectionFit testConfig initialPop rng
+    selectionFitIO h cfg initialPop rng
+    let (selected, rng1) = selectionFit cfg initialPop rng
 
     hPutStrLn h "\nThe selected population, based on fitness is:"
-    logP h selected
+    logP h cfg selected
 
     hPutStrLn h "\n6.Crossover:"
 
-    let (toCross, toPass, rng2) = _chooseCross testConfig selected rng1
+    let (toCross, toPass, rng2) = _chooseCross cfg selected rng1
         (parents, remaining) = _groupParents toCross
         toPass_ = toPass ++ remaining
-        (resultCross, ks, rng3) = crossOver testConfig parents rng2
+        (resultCross, ks, rng3) = crossOver cfg parents rng2
 
     hPutStrLn h "\n6.1. The pairs that take part in the crossover are:"
     mapM_ (logPair h) (zip parents ks)
 
     hPutStrLn h "\n6.2. The resulted individuals are:"
-    logP h resultCross
+    logP h cfg resultCross
 
     let popAfterCross = resultCross ++ toPass_
     hPutStrLn h "\n6.3. The population after the crossover process is:"
-    logP h popAfterCross
+    logP h cfg popAfterCross
 
-    let (popAfterMut, rng4) = mutateIs testConfig popAfterCross rng3
+    let (popAfterMut, rng4) = mutateIs cfg popAfterCross rng3
     hPutStrLn h "\n7. The population after the mutation process is:"
-    logP h popAfterMut
+    logP h cfg popAfterMut
     hPrintf
       h
       "\nEach bit had a probability of %.2f%% to mutate.\n"
-      (mutProb testConfig * 100)
+      (mutProb cfg * 100)
     hPutStrLn h "The elite individual and this remaining population combined pass into the second generation."
 
-    let nextGenPop = [eliteIndividual] ++ popAfterMut
+    let nextGenPop = eliteIndividual : popAfterMut
     hPrintf
       h
-      "\n8. The statistics after the first generation are: Max Fitness = %.4f, Average Fitness = %.4f\n"
+      "\n8. Repeating the process for %2d generations:\nThe statistics after the first generation are: Max Fitness = %.4f, Average Fitness = %.4f\n"
+      (numSteps cfg)
       (maxFit nextGenPop)
       (averageFit nextGenPop)
 
-    let (_, fits, _) = simulateNGenerations testConfig (numSteps testConfig - 1) nextGenPop rng4
+    let (_, fits, _) = simulateNGenerations cfg (numSteps cfg - 1) nextGenPop rng4
         fitsIdx = zip [2 ..] fits
 
-    mapM_ (logFits h) fitsIdx
+    mapM_ (logFits h cfg) fitsIdx
